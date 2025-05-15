@@ -4,6 +4,8 @@ import contactImg from "../assets/img/contact-img.svg";
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
 import { useScroll } from './ScrollContext';
+import dotenv from 'dotenv';
+dotenv.config();
 
 export const Contact = () => {
   const formInitialDetails = {
@@ -27,7 +29,7 @@ export const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setButtonText("Sending...");
-    let response = await fetch("http://localhost:5000/contact", {
+    let response = await fetch(`${process.env.VITE_REACT_APP_BACKEND_URL}/contact`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json;charset=utf-8",
