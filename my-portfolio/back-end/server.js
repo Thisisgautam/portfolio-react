@@ -7,7 +7,11 @@ import 'dotenv/config'
 
 // server used to send send emails
 const app = express();
-app.use(cors());
+const allowedOrigins = ['https://portfolio-react-goutam-goswamis-projects.vercel.app/']; 
+app.use(cors({
+  origin: allowedOrigins,
+  credentials: true
+}));
 app.use(express.json());
 app.use("/", router);
 app.listen(process.env.PORT || 5000, () => console.log("Server Running"));
