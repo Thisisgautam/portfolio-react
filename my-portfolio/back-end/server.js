@@ -5,14 +5,26 @@ import nodemailer from 'nodemailer';
 import 'dotenv/config'
 
 
-// server used to send send emails
 const app = express();
-const allowedOrigins = ['https://portfolio-react-goutam-goswamis-projects.vercel.app/']; 
+
+const allowedOrigins = [
+  'https://portfolio-react-goutam-goswamis-projects.vercel.app'
+];
+
 app.use(cors({
-  origin: allowedOrigins,
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   credentials: true
 }));
+
 app.use(express.json());
+
 app.use("/", router);
 app.listen(process.env.PORT || 5000, () => console.log("Server Running"));
 
