@@ -4,8 +4,7 @@ import contactImg from "../assets/img/contact-img.svg";
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
 import { useScroll } from './ScrollContext';
-import dotenv from 'dotenv';
-dotenv.config();
+
 
 export const Contact = () => {
   const formInitialDetails = {

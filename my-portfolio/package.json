@@ -12,7 +12,6 @@
   "dependencies": {
     "animate.css": "^4.1.1",
     "bootstrap": "^5.3.6",
-    "dotenv": "^16.5.0",
     "express": "^5.1.0",
     "nodemailer": "^7.0.3",
     "react": "^19.1.0",
